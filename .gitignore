@@ -1,0 +1,12 @@
+﻿# Dependencias
+node_modules/
+
+# Cobertura y salidas
+coverage/
+.nyc_output/
+
+# Playwright results
+test-results/
+
+# Otros
+.DS_Store
