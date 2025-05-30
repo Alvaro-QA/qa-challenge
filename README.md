@@ -131,7 +131,7 @@ npm run todo
 ### 3. Ejecutar pruebas con navegador visible
 
 ```bash
-npm run gui
+npx playwright test --headed
 ```
 
 ### 4. Ver reporte de cobertura
