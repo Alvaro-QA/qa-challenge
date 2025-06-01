@@ -1,39 +1,36 @@
 {
-  "name": "qa-challenge",
-  "version": "1.0.0",
-  "description": "Automated UI test challenge with Playwright and coverage reporting",
-  "main": "index.js",
   "scripts": {
-     "instrumentar": "npx nyc instrument public/js/validaciones.js public/js-instrumented/validaciones.js",
+    "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage",
+    "instrumentar": "npx babel public/js --out-dir public/js-instrumented --source-maps",
     "test": "npx playwright test",
     "merge": "npx nyc merge .nyc_output coverage/coverage-final.json",
-    "coverage": "npx nyc report --report-dir=coverage --reporter=html",
-    "todo": "npm run instrumentar && npm run test && npm run merge && npm run coverage"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.27.2",
-    "@babel/core": "^7.27.3",
-    "@babel/preset-env": "^7.27.2",
-    "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.21",
-    "babel-plugin-istanbul": "^7.0.0",
-    "nyc": "^17.1.0",
-    "serve": "^14.2.4"
+    "coverage": "npx nyc report --report-dir=coverage --reporter=html --reporter=text",
+    "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage",
+    "debug": "npx babel public/js/validaciones.js --out-file debug-output.js",
+    "check-instrumented": "dir public\\js-instrumented",
+    "check-nyc": "dir .nyc_output"
   },
   "nyc": {
     "reporter": [
       "text",
-      "html"
+      "html",
+      "json"
     ],
     "extension": [
       ".js"
     ],
     "include": [
-      "public/js-instrumented/validaciones.js"
+      "public/js/**/*.js"
     ],
     "exclude": [
-      "tests",
-      "mocks"
-    ]
+      "tests/**",
+      "mocks/**",
+      "**/*.test.js",
+      "**/node_modules/**"
+    ],
+    "sourceMap": true,
+    "instrument": false,
+    "cache": false,
+    "all": true
   }
 }

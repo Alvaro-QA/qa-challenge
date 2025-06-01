@@ -5,29 +5,29 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  workers: 1,
 
   reporter: [['list']],
 
   use: {
     baseURL: 'http://localhost:3000/?test',
     trace: 'on-first-retry',
+    // Habilitar cobertura de código
+    // collectCoverage: true,
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        // Configurar cobertura específica para Chromium
+        contextOptions: {
+          // Habilitar cobertura de JavaScript
+          recordVideo: undefined,
+        }
+      },
     },
-    
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
   ],
 
   webServer: {

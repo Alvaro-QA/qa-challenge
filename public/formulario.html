@@ -206,9 +206,20 @@
   </div>
 
   <script>
-  const esTest = window.location.search.includes('test');
+  console.log('🔍 Forzando carga de archivo instrumentado');
+  
   const script = document.createElement('script');
-  script.src = esTest ? '/js-instrumented/validaciones.js' : '/js/validaciones.js';
+  script.src = '/js-instrumented/validaciones.js';  // Siempre instrumentado
+  
+  script.onload = () => {
+    console.log('✅ Script instrumentado cargado');
+    console.log('📊 Coverage disponible:', typeof window.__coverage__ !== 'undefined');
+  };
+  
+  script.onerror = (error) => {
+    console.error('❌ Error:', error);
+  };
+  
   document.head.appendChild(script);
 </script>
 </body>
