@@ -1,5 +1,5 @@
 function evaluatePasswordStrength(password) {
-  console.log("⚡ evaluatePasswordStrength ejecutado con:", password);
+  console.log("evaluatePasswordStrength ejecutado con:", password);
 
   let score = 0;
   let feedback = '';
@@ -14,7 +14,7 @@ function evaluatePasswordStrength(password) {
   const strengthText = document.getElementById('strengthText');
 
   if (password.length === 0) {
-    console.log('🔁 Contraseña vacía');
+    console.log('Contraseña vacía');
     strengthBar.style.width = '0%';
     strengthText.textContent = '';
     strengthBar.className = 'strength-bar';
@@ -22,17 +22,17 @@ function evaluatePasswordStrength(password) {
   }
 
   if (score <= 2) {
-    console.log('🔴 Contraseña débil');
+    console.log('Contraseña débil');
     strengthBar.style.width = '33%';
     strengthBar.className = 'strength-bar strength-weak';
     feedback = 'Débil - Agrega mayúsculas, números y símbolos';
   } else if (score <= 3) {
-    console.log('🟡 Contraseña media');
+    console.log('Contraseña media');
     strengthBar.style.width = '66%';
     strengthBar.className = 'strength-bar strength-medium';
     feedback = 'Media - Considera agregar más caracteres especiales';
   } else {
-    console.log('🟢 Contraseña fuerte');
+    console.log('Contraseña fuerte');
     strengthBar.style.width = '100%';
     strengthBar.className = 'strength-bar strength-strong';
     feedback = 'Fuerte - ¡Excelente contraseña!';
@@ -42,7 +42,7 @@ function evaluatePasswordStrength(password) {
 }
 
 function validateEmailRealTime(email) {
-  console.log('📧 validateEmailRealTime ejecutado con:', email);
+  console.log('validateEmailRealTime ejecutado con:', email);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const emailInput = document.getElementById('email');
@@ -55,22 +55,22 @@ function validateEmailRealTime(email) {
   }
 
   if (!emailRegex.test(email)) {
-    console.log('❌ Email con formato inválido');
+    console.log('Email con formato inválido');
     errorEmail.textContent = 'Formato de email inválido';
     emailInput.className = 'error';
   } else if (!email.endsWith('@empresa.com.ar')) {
-    console.log('❌ Email fuera del dominio');
+    console.log('Email fuera del dominio');
     errorEmail.textContent = 'Debe usar el dominio @empresa.com.ar';
     emailInput.className = 'error';
   } else {
-    console.log('✅ Email válido');
+    console.log('Email válido');
     errorEmail.textContent = '';
     emailInput.className = 'success';
   }
 }
 
 function clearErrors() {
-  console.log('🧼 Limpiando errores del formulario');
+  console.log('Limpiando errores del formulario');
   ['nombre', 'email', 'edad', 'password', 'repetir'].forEach(field => {
     document.getElementById('error-' + field).textContent = '';
     document.getElementById(field).classList.remove('error', 'success');
@@ -78,7 +78,7 @@ function clearErrors() {
 }
 
 function validateNombre(nombre) {
-  console.log('📝 Validando nombre:', nombre);
+  console.log('Validando nombre:', nombre);
 
   const nombreInput = document.getElementById('nombre');
   const errorNombre = document.getElementById('error-nombre');
@@ -98,7 +98,7 @@ function validateNombre(nombre) {
 }
 
 function validateEmail(email) {
-  console.log('📧 Validando email:', email);
+  console.log('Validando email:', email);
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const emailInput = document.getElementById('email');
@@ -123,15 +123,15 @@ function validateEmail(email) {
 }
 
 function validateEdad(edad) {
-  console.log('🎂 Validando edad:', edad);
+  console.log('Validando edad:', edad);
 
   const edadInput = document.getElementById('edad');
   const errorEdad = document.getElementById('error-edad');
 
   if (edad !== '') {
     const edadNum = Number(edad);
-    if (isNaN(edadNum) || edadNum <= 0 || edadNum > 120) {
-      errorEdad.textContent = 'La edad debe ser un número entre 1 y 120';
+    if (isNaN(edadNum) || edadNum < 18 || edadNum > 99) {
+      errorEdad.textContent = 'La edad debe ser un número entre 18 y 99 años';
       edadInput.classList.add('error');
       return false;
     } else {
@@ -143,7 +143,7 @@ function validateEdad(edad) {
 }
 
 function validatePassword(password) {
-  console.log('🔐 Validando contraseña');
+  console.log('Validando contraseña');
 
   const passwordInput = document.getElementById('password');
   const errorPassword = document.getElementById('error-password');
@@ -163,7 +163,7 @@ function validatePassword(password) {
 }
 
 function validateRepetir(password, repetir) {
-  console.log('🔁 Validando repetición de contraseña');
+  console.log('Validando repetición de contraseña');
 
   const repetirInput = document.getElementById('repetir');
   const errorRepetir = document.getElementById('error-repetir');
@@ -183,7 +183,7 @@ function validateRepetir(password, repetir) {
 }
 
 function showLoading(show) {
-  console.log('⏳ Estado de carga:', show);
+  console.log('Estado de carga:', show);
 
   const submitBtn = document.getElementById('submitBtn');
   const loading = document.getElementById('loading');
@@ -200,7 +200,7 @@ function showLoading(show) {
 }
 
 function showSuccessMessage(nombre) {
-  console.log('✅ Mostrando mensaje de éxito');
+  console.log('Mostrando mensaje de éxito');
 
   const mensajeExito = document.getElementById('mensajeExito');
   mensajeExito.textContent = `Registro exitoso. Bienvenido/a, ${nombre}!`;
@@ -211,7 +211,7 @@ function showSuccessMessage(nombre) {
 }
 
 function showErrorMessage(mensaje) {
-  console.log('❌ Mostrando mensaje de error general');
+  console.log('Mostrando mensaje de error general');
 
   const mensajeExito = document.getElementById('mensajeExito');
   mensajeExito.textContent = mensaje;
@@ -222,7 +222,7 @@ function showErrorMessage(mensaje) {
 }
 
 function resetForm() {
-  console.log('🔄 Reseteando formulario');
+  console.log('Reseteando formulario');
 
   document.getElementById('registroForm').reset();
   ['nombre', 'email', 'edad', 'password', 'repetir'].forEach(field => {
@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.getElementById('registroForm').addEventListener('submit', async function (e) {
   e.preventDefault();
-  console.log('📨 Formulario enviado');
+  console.log('Formulario enviado');
 
   clearErrors();
   const mensajeExito = document.getElementById('mensajeExito');
@@ -303,7 +303,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
     } else {
       const errorData = await response.json();
       if (errorData.error === 'El email ya está registrado') {
-        console.log('⚠️ Email duplicado');
+        console.log('Email duplicado');
         const errorEmail = document.getElementById('error-email');
         const emailInput = document.getElementById('email');
         errorEmail.textContent = errorData.error;
@@ -313,7 +313,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
       }
     }
   } catch (error) {
-    console.error('🚫 Error en el registro:', error);
+    console.error('Error en el registro:', error);
     showErrorMessage('Error de conexión. Por favor, verifica tu conexión a internet e inténtalo nuevamente.');
   } finally {
     showLoading(false);

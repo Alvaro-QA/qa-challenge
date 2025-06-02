@@ -1,8 +1,8 @@
 # QA Automation Challenge - Formulario de Registro
 
-## Descripción del Desafío
+## Descripcion del Desafio
 
-Este proyecto automatiza los tests funcionales de un formulario de registro web, utilizando **Playwright**, bajo una estructura modular y escalable (Page Object Model). Se implementa validación de formularios, mocks de API, y cobertura de código usando **Istanbul (nyc)**.
+Este proyecto automatiza los tests funcionales de un formulario de registro web, utilizando **Playwright**, bajo una estructura modular y escalable (Page Object Model). Se implementa validacion de formularios, mocks de API, y cobertura de codigo usando **Istanbul (nyc)**.
 
 ---
 
@@ -11,13 +11,13 @@ Este proyecto automatiza los tests funcionales de un formulario de registro web,
 El formulario debe contener:
 
 * **Nombre completo** (obligatorio)
-* **Email** (obligatorio, válido, dominio `@empresa.com.ar`)
-* **Edad** (opcional, pero debe ser un número positivo si se completa)
-* **Contraseña** (obligatoria, mínimo 6 caracteres)
-* **Repetir contraseña** (debe coincidir con la anterior)
-* **Botón Enviar**
+* **Email** (obligatorio, valido, dominio `@empresa.com.ar`)
+* **Edad** (opcional, pero debe ser un numero positivo si se completa)
+* **Contrasena** (obligatoria, minimo 6 caracteres)
+* **Repetir contrasena** (debe coincidir con la anterior)
+* **Boton Enviar**
 
-Mensajes de error se muestran junto a los campos si hay errores. Si el formulario es válido, se muestra:
+Mensajes de error se muestran junto a los campos si hay errores. Si el formulario es valido, se muestra:
 
 ```
 Registro exitoso. Bienvenido/a, [Nombre]!
@@ -25,89 +25,91 @@ Registro exitoso. Bienvenido/a, [Nombre]!
 
 ---
 
-## Interpretación de Requerimientos y Decisiones de Testing
+## Interpretacion de Requerimientos y Decisiones de Testing
 
-### a. Interpretación de los requerimientos del formulario
+### a. Interpretacion de los requerimientos del formulario
 
 **Campos obligatorios:**
-- Interpreté que "nombre completo" debe tener al menos 6 caracteres para ser considerado válido
-- El email debe seguir formato estándar  pero con restricción específica de dominio corporativo
-- La contraseña debe tener mínimo 6 caracteres como medida de seguridad básica
+- Interprete que "nombre completo" debe tener al menos 2 caracteres para ser considerado valido
+- El email debe seguir formato estandar pero con restriccion especifica de dominio corporativo
+- La contrasena debe tener minimo 6 caracteres como medida de seguridad basica
 
 **Campos opcionales:**
-- La edad, si se proporciona, debe estar en un rango lógico (18-99 años)
-- Valores negativos o superiores a 99 se consideran inválidos
+- La edad, si se proporciona, debe estar en un rango logico (18-99 años)
+- Valores menores a 18 o superiores a 99 se consideran invalidos (mayoria de edad requerida)
 
 **Validaciones de negocio:**
 - Email corporativo obligatorio (`@empresa.com.ar`) para restringir acceso solo a empleados
-- Confirmación de contraseña para prevenir errores de tipeo
-- Validación en tiempo real para mejorar experiencia de usuario
+- Confirmacion de contraseña para prevenir errores de tipeo
+- Validaciones especificas para mejorar experiencia de usuario
 
-### b. Justificación de casos de prueba elegidos
+### b. Justificacion de casos de prueba elegidos
 
-**Casos básicos obligatorios:**
+**Casos basicos obligatorios:**
 1. **Registro exitoso** - Valida el flujo principal de negocio
-2. **Email inválido** - Prueba la validación más crítica del sistema
-3. **Contraseñas no coincidentes** - Previene errores comunes de usuario
+2. **Email invalido** - Prueba la validacion mas critica del sistema
+3. **Contrasenas no coincidentes** - Previene errores comunes de usuario
 
-**Casos adicionales estratégicos:**
-4. **Campos vacíos** - Verifica que todas las validaciones obligatorias funcionen simultáneamente
-5. **Edad negativa** - Prueba validación de rangos y tipos de datos
-6. **Email duplicado** - Simula restricción de base de datos realista
-7. **Accesibilidad** - Garantiza usabilidad para personas con discapacidades
+**Casos adicionales estrategicos:**
+4. **Campos vacios** - Verifica que todas las validaciones obligatorias funcionen simultaneamente
+5. **Edad menor a mayoria de edad** - Prueba validacion de rangos y tipos de datos
+6. **Email duplicado** - Simula restriccion de base de datos realista
+7. **Accesibilidad** - Garantiza usabilidad
+8. **Validaciones especificas** - Prueba casos extremos y formatos
 
 ### c. Criterios de negocio aplicados
 
 **Seguridad:**
 - Solo emails corporativos (`@empresa.com.ar`) pueden registrarse
-- Contraseñas mínimas de 6 caracteres
-- Confirmación obligatoria de contraseña
+- Contrasenas minimas de 6 caracteres
+- Confirmacion obligatoria de contrasena
 
 **Experiencia de usuario:**
-- Validaciones completas antes del envío
-- Mensajes de error específicos y claros  
-- Indicadores visuales de fortaleza de contraseña
+- Validaciones antes del envio del formulario
+- Mensajes de error especificos y claros
+- Indicadores visuales de fortaleza de contrasena
 
 **Integridad de datos:**
-- Prevención de emails duplicados
-- Validación de tipos de datos (edad numérica)
-- Rangos lógicos para campos numéricos (1-120 años)
+- Prevencion de emails duplicados
+- Validacion de tipos de datos (edad numerica)
+- Rangos logicos para campos numericos (18-99 anos para mayoria de edad)
 
 **Accesibilidad:**
 - Etiquetas ARIA para lectores de pantalla
-- Asociación correcta de labels con inputs
-- Navegación por teclado funcional
+- Asociacion correcta de labels con inputs
+- Navegacion por teclado funcional
 
 ---
 
 ## Casos de prueba implementados
 
 ### 1. Casos obligatorios:
-* Registro exitoso con datos válidos
-* Fallo por email inválido (dominio incorrecto, sin dominio, sin arroba)
-* Fallo por contraseñas no coincidentes
+* Registro exitoso con datos validos
+* Fallo por email invalido (dominio incorrecto, sin dominio, sin arroba)
+* Fallo por contrasenas no coincidentes
 
 ### 2. Casos adicionales:
-* Envío con todos los campos vacíos (validación múltiple)
-* Edad con valor negativo o texto
+* Envio con todos los campos vacios (validacion multiple)
+* Edad menor a mayoria de edad o fuera de rango
 * Email duplicado (API mock responde como existente)
-* Verificación de accesibilidad básica (`aria-*`, `label/for`)
+* Verificacion de accesibilidad basica (`aria-*`, `label/for`)
 
 ### 3. Validaciones de negocio:
 * Email debe terminar en `@empresa.com.ar`
 * Edad positiva si se completa
-* Confirmación de contraseñas
-* Integración con mock API y "base de datos" simulada
+* Confirmacion de contrasenas
+* Integracion con mock API y "base de datos" simulada
 
 ---
 
-## Automatización con Playwright
+## Automatizacion con Playwright
 
 ### Herramientas
 * Playwright + TypeScript
 * Page Object Model
 * API Mock (`mockServer.ts` y `dbMock.ts`)
 * Cobertura con Istanbul (`nyc`)
+* Reportes HTML de pruebas y cobertura
 
 ### Estructura del proyecto
 
@@ -123,9 +125,9 @@ qa-challenge/
 ├── tests/                 # Casos de prueba automatizados
 │   ├── formulario/
 │   └── pages/
-├── saveCoverage.ts        # Captura de window.__coverage__
+├── test-results/          # Reportes HTML de pruebas
+├── coverage/              # Reportes HTML de cobertura
 ├── .nyc_output/           # Datos crudos de cobertura
-├── coverage/              # Reportes HTML generados
 ├── babel.config.js
 ├── playwright.config.ts
 ├── package.json
@@ -133,7 +135,7 @@ qa-challenge/
 
 ---
 
-## Instalación y Ejecución
+## Instalacion y Ejecucion
 
 ### 1. Requisitos previos
 Asegurate de tener instalado:
@@ -142,23 +144,43 @@ Asegurate de tener instalado:
 
 ### 2. Inicializar proyecto
 ```bash
-git clone https://github.com/usuario/qa-challenge-playwright.git
-cd qa-challenge-playwright
+git clone https://github.com/Alvaro-QA/qa-challenge.git
+cd qa-challenge
 npm install
 ```
 
-### 3. Ejecutar pruebas + cobertura
+### 3. Instalar Playwright (si no lo tienes)
 ```bash
+# Instalar Playwright
+npm install -D @playwright/test
+
+# Instalar navegadores
+npx playwright install
+
+# Verificar instalacion
+npx playwright --version
+```
+
+### 4. Comandos rápidos
+```bash
+# Ejecutar test + cobertura
 npm run todo
-```
 
-### 4. Ejecutar pruebas con navegador visible
-```bash
+# Solo pruebas con interfaz
 npx playwright test --headed
+
+# Ver reportes
+npm run test-report
 ```
 
-### 5. Ver reporte de cobertura
-Abrir en navegador: `coverage/index.html`
+### 5. Ver reportes generados
+* **Reporte de pruebas:** `test-results/index.html`
+* **Reporte de cobertura:** `coverage/index.html`
+
+```bash
+# Verificar archivos generados
+npm run check-reports
+```
 
 ---
 
@@ -166,245 +188,154 @@ Abrir en navegador: `coverage/index.html`
 
 ```json
 "scripts": {
-  "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage",
+  "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage && if exist test-results rmdir /s /q test-results",
   "instrumentar": "npx babel public/js --out-dir public/js-instrumented --source-maps",
   "test": "npx playwright test",
   "merge": "npx nyc merge .nyc_output coverage/coverage-final.json",
   "coverage": "npx nyc report --report-dir=coverage --reporter=html --reporter=text",
-  "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage"
+  "test-report": "npx playwright show-report",
+  "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage && echo \"Reportes generados: coverage/index.html y test-results/index.html\"",
+  "check-reports": "dir test-results && dir coverage"
 }
 ```
 
 ---
 
-## Decisiones técnicas
+## Troubleshooting Común
 
-### Estructura
-* Se usó Page Object Model para facilitar mantenimiento y reutilización
-* Los mocks están desacoplados de los tests para claridad
-
-### Herramientas
-* **Playwright**: moderno, soporte para interceptar API, y excelente DX
-* **Istanbul (nyc)** + Babel: cobertura real del JS del navegador
-* **TypeScript**: tipado fuerte para mayor robustez
-
-### Supuestos
-* La validación ocurre del lado del cliente
-* `/api/registro` es simulado con `route.fulfill()`
-* `window.__coverage__` es capturado y persistido en `.nyc_output`
-* El formulario es accedido vía `http://localhost:3000/formulario.html?test`
-
----
-
-## Resultados de Cobertura
-
-El proyecto mantiene una cobertura de código superior al 60%, cubriendo:
-* Validaciones de formulario
-* Manejo de errores
-* Funciones de interfaz de usuario
-* Integración con API simulada# QA Automation Challenge - Formulario de Registro
-
-## Descripción del Desafío
-
-Este proyecto automatiza los tests funcionales de un formulario de registro web, utilizando **Playwright**, bajo una estructura modular y escalable (Page Object Model). Se implementa validación de formularios, mocks de API, y cobertura de código usando **Istanbul (nyc)**.
-
----
-
-## Requerimientos del Formulario
-
-El formulario debe contener:
-
-* **Nombre completo** (obligatorio)
-* **Email** (obligatorio, válido, dominio `@empresa.com.ar`)
-* **Edad** (opcional, pero debe ser un número positivo si se completa)
-* **Contraseña** (obligatoria, mínimo 6 caracteres)
-* **Repetir contraseña** (debe coincidir con la anterior)
-* **Botón Enviar**
-
-Mensajes de error se muestran junto a los campos si hay errores. Si el formulario es válido, se muestra:
-
-```
-Registro exitoso. Bienvenido/a, [Nombre]!
-```
-
----
-
-## Interpretación de Requerimientos y Decisiones de Testing
-
-### a. Interpretación de los requerimientos del formulario
-
-**Campos obligatorios:**
-- Interpreté que "nombre completo" debe tener al menos 2 caracteres para ser considerado válido
-- El email debe seguir formato estándar RFC pero con restricción específica de dominio corporativo
-- La contraseña debe tener mínimo 6 caracteres como medida de seguridad básica
-
-**Campos opcionales:**
-- La edad, si se proporciona, debe estar en un rango lógico (1-120 años)
-- Valores negativos o superiores a 120 se consideran inválidos
-
-**Validaciones de negocio:**
-- Email corporativo obligatorio (`@empresa.com.ar`) para restringir acceso solo a empleados
-- Confirmación de contraseña para prevenir errores de tipeo
-- Validación en tiempo real para mejorar experiencia de usuario
-
-### b. Justificación de casos de prueba elegidos
-
-**Casos básicos obligatorios:**
-1. **Registro exitoso** - Valida el flujo principal de negocio
-2. **Email inválido** - Prueba la validación más crítica del sistema
-3. **Contraseñas no coincidentes** - Previene errores comunes de usuario
-
-**Casos adicionales estratégicos:**
-4. **Campos vacíos** - Verifica que todas las validaciones obligatorias funcionen simultáneamente
-5. **Edad negativa** - Prueba validación de rangos y tipos de datos
-6. **Email duplicado** - Simula restricción de base de datos realista
-7. **Accesibilidad** - Garantiza usabilidad para personas con discapacidades
-8. **Validación en tiempo real** - Prueba retroalimentación inmediata al usuario
-
-### c. Criterios de negocio aplicados
-
-**Seguridad:**
-- Solo emails corporativos (`@empresa.com.ar`) pueden registrarse
-- Contraseñas mínimas de 6 caracteres
-- Confirmación obligatoria de contraseña
-
-**Experiencia de usuario:**
-- Validaciones en tiempo real para feedback inmediato
-- Mensajes de error específicos y claros
-- Indicadores visuales de fortaleza de contraseña
-
-**Integridad de datos:**
-- Prevención de emails duplicados
-- Validación de tipos de datos (edad numérica)
-- Rangos lógicos para campos numéricos (1-120 años)
-
-**Accesibilidad:**
-- Etiquetas ARIA para lectores de pantalla
-- Asociación correcta de labels con inputs
-- Navegación por teclado funcional
-
----
-
-## Casos de prueba implementados
-
-### 1. Casos obligatorios:
-* Registro exitoso con datos válidos
-* Fallo por email inválido (dominio incorrecto, sin dominio, sin arroba)
-* Fallo por contraseñas no coincidentes
-
-### 2. Casos adicionales:
-* Envío con todos los campos vacíos (validación múltiple)
-* Edad con valor negativo o texto
-* Email duplicado (API mock responde como existente)
-* Verificación de accesibilidad básica (`aria-*`, `label/for`)
-
-### 3. Validaciones de negocio:
-* Email debe terminar en `@empresa.com.ar`
-* Edad positiva si se completa
-* Confirmación de contraseñas
-* Integración con mock API y "base de datos" simulada
-
----
-
-## Automatización con Playwright
-
-### Herramientas
-* Playwright + TypeScript
-* Page Object Model
-* API Mock (`mockServer.ts` y `dbMock.ts`)
-* Cobertura con Istanbul (`nyc`)
-
-### Estructura del proyecto
-
-```
-qa-challenge/
-├── public/                 # HTML + JS original/instrumentado
-│   ├── formulario.html
-│   ├── js/
-│   └── js-instrumented/
-├── mocks/                 # API y base de datos simulada
-│   ├── dbMock.ts
-│   └── mockServer.ts
-├── tests/                 # Casos de prueba automatizados
-│   ├── formulario/
-│   └── pages/
-├── saveCoverage.ts        # Captura de window.__coverage__
-├── .nyc_output/           # Datos crudos de cobertura
-├── coverage/              # Reportes HTML generados
-├── babel.config.js
-├── playwright.config.ts
-├── package.json
-```
-
----
-
-## Instalación y Ejecución
-
-### 1. Requisitos previos
-Asegurate de tener instalado:
-* Node.js 18 o superior
-* npm
-
-### 2. Inicializar proyecto
+**Error: Playwright no encontrado**
 ```bash
-git clone https://github.com/usuario/qa-challenge-playwright.git
-cd qa-challenge-playwright
-npm install
+npx playwright install
 ```
 
-### 3. Ejecutar pruebas + cobertura
+**Error: Puerto ocupado**
+- Cambiar puerto en playwright.config.ts
+
+**Error: No se generan reportes**
 ```bash
+# Limpiar y ejecutar todo desde cero
+npm run clean
 npm run todo
 ```
 
-### 4. Ejecutar pruebas con navegador visible
-```bash
-npx playwright test --headed
-```
-
-### 5. Ver reporte de cobertura
-Abrir en navegador: `coverage/index.html`
-
 ---
 
-## Scripts disponibles
+## Decisiones Tecnicas
 
-```json
-"scripts": {
-  "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage",
-  "instrumentar": "npx babel public/js --out-dir public/js-instrumented --source-maps",
-  "test": "npx playwright test",
-  "merge": "npx nyc merge .nyc_output coverage/coverage-final.json",
-  "coverage": "npx nyc report --report-dir=coverage --reporter=html --reporter=text",
-  "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage"
-}
-```
+### Eleccion de Herramientas
 
----
+**Playwright sobre Cypress/Selenium:**
+- **Ventaja tecnica**: Soporte nativo para multiples navegadores sin configuracion adicional
+- **API moderna**: Manejo asincrono nativo y mejor rendimiento
+- **Interceptacion de red**: Capacidad robusta para mockear APIs sin herramientas externas
+- **Estabilidad**: Menor flakiness comparado con Selenium, mejor debugging que Cypress
 
-## Decisiones técnicas
+### Arquitectura y Estructura
 
-### Estructura
-* Se usó Page Object Model para facilitar mantenimiento y reutilización
-* Los mocks están desacoplados de los tests para claridad
+**Page Object Model (POM):**
+- **Beneficios**: Reduce duplicacion de codigo, facilita mantenimiento, mejora legibilidad
+- **Implementacion**: FormularioPage encapsula toda la interaccion con el DOM
 
-### Herramientas
-* **Playwright**: moderno, soporte para interceptar API, y excelente DX
-* **Istanbul (nyc)** + Babel: cobertura real del JS del navegador
-* **TypeScript**: tipado fuerte para mayor robustez
+**Separacion de responsabilidades:**
+- **Tests**: Solo logica de casos de prueba
+- **Pages**: Interacciones con UI
+- **Mocks**: Simulacion de backend desacoplada
 
-### Supuestos
-* La validación ocurre del lado del cliente
-* `/api/registro` es simulado con `route.fulfill()`
-* `window.__coverage__` es capturado y persistido en `.nyc_output`
-* El formulario es accedido vía `http://localhost:3000/formulario.html?test`
+### Interpretacion de Requerimientos Ambiguos
+
+**Casos no especificados que interprete:**
+
+1. **Nombre minimo 2 caracteres**:
+   - **Razonamiento**: Evitamos valores vacíos o entradas inválidas como una sola letra (ej. "A", "Z"), que no suelen representar un nombre real.
+   - **Decision**: Establecer un mínimo de 2 caracteres para asegurar un input mínimamente válido y evitar errores de carga o abuso.
+
+2. **Campo "Edad" – Reglas de validación:**
+
+   - **Rango permitido: 18 a 99 años (inclusive)**.
+   - **Razonamiento**: Se trata de un formulario interno orientado a empleados o usuarios adultos. Se asume que menores no deben registrarse y que valores extremos (ej. 120 años) no son representativos en este contexto
+
+3. **Email corporativo obligatorio**:
+   - *Razonamiento*: El challenge sugiere "@empresa.com.ar" como ejemplo
+   - *Decision*: Convertir sugerencia en regla de negocio estricta
+
+4. **Validaciones ambiguas implementadas**:
+   - Edad negativa (-5 → 15 años, menor de edad)
+   - Texto en lugar de numero para edad
+   - Nombres de 1 caracter
+   - Emails sin @ o dominio incompleto
+
+### Estrategia de Testing
+
+**Casos obligatorios + casos extremos:**
+- **Cobertura completa**: No solo casos felices, sino edge cases
+- **Validaciones simultaneas**: Formulario vacio para probar multiples errores
+- **Integracion real**: API mock + base de datos simulada
+
+**Criterios de aceptacion interpretados:**
+- **UX**: Mensajes de error claros y especificos
+- **Seguridad**: Solo emails corporativos
+- **Accesibilidad**: ARIA labels y navegacion por teclado
+- **Performance**: Validaciones eficientes
+
+### Configuracion Tecnica
+
+**Cobertura de codigo (Istanbul + NYC):**
+- **Implementacion**: Instrumentacion manual con Babel para capturar window.__coverage__
+- **Ventaja**: Cobertura real del JavaScript ejecutado en el navegador
+
+**API Mocking:**
+- **Enfoque**: route.fulfill() de Playwright vs herramientas externas
+- **Beneficio**: Sin dependencias adicionales, control total sobre respuestas
+- **Casos cubiertos**: Registro exitoso, email duplicado, errores de servidor
+
+### Supuestos y Limitaciones
+
+**Supuestos tomados:**
+1. **Validacion client-side**: El JavaScript maneja validaciones antes del envio
+2. **Entorno local**: Servidor estatico con npx serve
+3. **Navegador target**: Chromium como navegador principal
+4. **Datos persistentes**: Mock database simula persistencia entre requests
+
+**Limitaciones aceptadas:**
+1. **Un solo navegador**: Chromium solamente (vs cross-browser)
+2. **Sin backend real**: Simulacion completa con mocks
+3. **Cobertura manual**: Sin integracion automatica con CI/CD
+
+### Decisiones de Negocio Aplicadas
+
+**Politicas empresariales simuladas:**
+- **Email corporativo**: Solo @empresa.com.ar permitido
+- **Mayoria de edad**: 18-99 años para empleados
+- **Seguridad**: Minimo 6 caracteres en contraseñas
+- **Prevencion duplicados**: Un email = un usuario
+
+**Criterios de calidad:**
+- **>60% cobertura**: Objetivo realista para proyecto de testing
+- **Tests descriptivos**: Nombres claros sobre que valida cada test
+- **Documentacion completa**: README como especificacion funcional
 
 ---
 
 ## Resultados de Cobertura
 
-El proyecto mantiene una cobertura de código superior al 60%, cubriendo:
+El proyecto mantiene una cobertura de codigo superior al 60%, cubriendo:
 * Validaciones de formulario
 * Manejo de errores
 * Funciones de interfaz de usuario
-* Integración con API simulada
+* Integracion con API simulada
+
+## Reportes Generados
+
+Despues de ejecutar `npm run todo`, se generan dos reportes HTML:
+
+1. **Reporte de Pruebas** (`test-results/index.html`):
+   - Estado de cada test (paso/fallo)
+   - Tiempos de ejecucion
+   - Screenshots y videos en caso de fallos
+   - Trazas detalladas de ejecucion
+
+2. **Reporte de Cobertura** (`coverage/index.html`):
+   - Porcentaje de lineas cubiertas
+   - Funciones ejecutadas vs no ejecutadas
+   - Ramas de codigo cubiertas
+   - Navegacion interactiva por archivos

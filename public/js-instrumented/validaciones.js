@@ -2,7 +2,7 @@
 
 function cov_2b9x1k7jwi() {
   var path = "C:\\Users\\User\\qa-challenge\\public\\js\\validaciones.js";
-  var hash = "bb8bef111c6dc083ab3d39687468ef8df99cad72";
+  var hash = "b5c5eab0ee49f7b94dca51870ed9a8ae703b0606";
   var global = new Function("return this")();
   var gcv = "__coverage__";
   var coverageData = {
@@ -15,7 +15,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 2,
-          column: 69
+          column: 67
         }
       },
       "1": {
@@ -175,7 +175,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 17,
-          column: 39
+          column: 36
         }
       },
       "17": {
@@ -235,7 +235,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 25,
-          column: 39
+          column: 36
         }
       },
       "23": {
@@ -285,7 +285,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 30,
-          column: 39
+          column: 36
         }
       },
       "28": {
@@ -325,7 +325,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 35,
-          column: 40
+          column: 37
         }
       },
       "32": {
@@ -375,7 +375,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 45,
-          column: 64
+          column: 61
         }
       },
       "37": {
@@ -465,7 +465,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 58,
-          column: 48
+          column: 46
         }
       },
       "46": {
@@ -505,7 +505,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 62,
-          column: 45
+          column: 43
         }
       },
       "50": {
@@ -535,7 +535,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 66,
-          column: 34
+          column: 32
         }
       },
       "53": {
@@ -565,7 +565,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 73,
-          column: 53
+          column: 50
         }
       },
       "56": {
@@ -605,7 +605,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 81,
-          column: 46
+          column: 43
         }
       },
       "60": {
@@ -735,7 +735,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 101,
-          column: 44
+          column: 41
         }
       },
       "73": {
@@ -915,7 +915,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 126,
-          column: 42
+          column: 39
         }
       },
       "91": {
@@ -975,7 +975,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 134,
-          column: 73
+          column: 78
         }
       },
       "97": {
@@ -1035,7 +1035,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 146,
-          column: 41
+          column: 38
         }
       },
       "103": {
@@ -1165,7 +1165,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 166,
-          column: 55
+          column: 52
         }
       },
       "116": {
@@ -1295,7 +1295,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 186,
-          column: 42
+          column: 40
         }
       },
       "129": {
@@ -1395,7 +1395,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 203,
-          column: 46
+          column: 44
         }
       },
       "139": {
@@ -1465,7 +1465,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 214,
-          column: 54
+          column: 52
         }
       },
       "146": {
@@ -1535,7 +1535,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 225,
-          column: 42
+          column: 39
         }
       },
       "153": {
@@ -1805,7 +1805,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 269,
-          column: 39
+          column: 36
         }
       },
       "180": {
@@ -2065,7 +2065,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 306,
-          column: 42
+          column: 39
         }
       },
       "206": {
@@ -2125,7 +2125,7 @@ function cov_2b9x1k7jwi() {
         },
         end: {
           line: 316,
-          column: 53
+          column: 50
         }
       },
       "212": {
@@ -3210,7 +3210,7 @@ function cov_2b9x1k7jwi() {
           },
           end: {
             line: 133,
-            column: 55
+            column: 54
           }
         },
         type: "binary-expr",
@@ -3239,7 +3239,7 @@ function cov_2b9x1k7jwi() {
           },
           end: {
             line: 133,
-            column: 55
+            column: 54
           }
         }],
         line: 133
@@ -4091,7 +4091,7 @@ function cov_2b9x1k7jwi() {
       "35": [0, 0, 0]
     },
     _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    hash: "bb8bef111c6dc083ab3d39687468ef8df99cad72"
+    hash: "b5c5eab0ee49f7b94dca51870ed9a8ae703b0606"
   };
   var coverage = global[gcv] || (global[gcv] = {});
   if (!coverage[path] || coverage[path].hash !== hash) {
@@ -4114,7 +4114,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
 function evaluatePasswordStrength(password) {
   cov_2b9x1k7jwi().f[0]++;
   cov_2b9x1k7jwi().s[0]++;
-  console.log("⚡ evaluatePasswordStrength ejecutado con:", password);
+  console.log("evaluatePasswordStrength ejecutado con:", password);
   var score = (cov_2b9x1k7jwi().s[1]++, 0);
   var feedback = (cov_2b9x1k7jwi().s[2]++, '');
   cov_2b9x1k7jwi().s[3]++;
@@ -4163,7 +4163,7 @@ function evaluatePasswordStrength(password) {
   if (password.length === 0) {
     cov_2b9x1k7jwi().b[5][0]++;
     cov_2b9x1k7jwi().s[16]++;
-    console.log('🔁 Contraseña vacía');
+    console.log('Contraseña vacía');
     cov_2b9x1k7jwi().s[17]++;
     strengthBar.style.width = '0%';
     cov_2b9x1k7jwi().s[18]++;
@@ -4179,7 +4179,7 @@ function evaluatePasswordStrength(password) {
   if (score <= 2) {
     cov_2b9x1k7jwi().b[6][0]++;
     cov_2b9x1k7jwi().s[22]++;
-    console.log('🔴 Contraseña débil');
+    console.log('Contraseña débil');
     cov_2b9x1k7jwi().s[23]++;
     strengthBar.style.width = '33%';
     cov_2b9x1k7jwi().s[24]++;
@@ -4192,7 +4192,7 @@ function evaluatePasswordStrength(password) {
     if (score <= 3) {
       cov_2b9x1k7jwi().b[7][0]++;
       cov_2b9x1k7jwi().s[27]++;
-      console.log('🟡 Contraseña media');
+      console.log('Contraseña media');
       cov_2b9x1k7jwi().s[28]++;
       strengthBar.style.width = '66%';
       cov_2b9x1k7jwi().s[29]++;
@@ -4202,7 +4202,7 @@ function evaluatePasswordStrength(password) {
     } else {
       cov_2b9x1k7jwi().b[7][1]++;
       cov_2b9x1k7jwi().s[31]++;
-      console.log('🟢 Contraseña fuerte');
+      console.log('Contraseña fuerte');
       cov_2b9x1k7jwi().s[32]++;
       strengthBar.style.width = '100%';
       cov_2b9x1k7jwi().s[33]++;
@@ -4217,7 +4217,7 @@ function evaluatePasswordStrength(password) {
 function validateEmailRealTime(email) {
   cov_2b9x1k7jwi().f[1]++;
   cov_2b9x1k7jwi().s[36]++;
-  console.log('📧 validateEmailRealTime ejecutado con:', email);
+  console.log('validateEmailRealTime ejecutado con:', email);
   var emailRegex = (cov_2b9x1k7jwi().s[37]++, /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   var emailInput = (cov_2b9x1k7jwi().s[38]++, document.getElementById('email'));
   var errorEmail = (cov_2b9x1k7jwi().s[39]++, document.getElementById('error-email'));
@@ -4237,7 +4237,7 @@ function validateEmailRealTime(email) {
   if (!emailRegex.test(email)) {
     cov_2b9x1k7jwi().b[9][0]++;
     cov_2b9x1k7jwi().s[45]++;
-    console.log('❌ Email con formato inválido');
+    console.log('Email con formato inválido');
     cov_2b9x1k7jwi().s[46]++;
     errorEmail.textContent = 'Formato de email inválido';
     cov_2b9x1k7jwi().s[47]++;
@@ -4248,7 +4248,7 @@ function validateEmailRealTime(email) {
     if (!email.endsWith('@empresa.com.ar')) {
       cov_2b9x1k7jwi().b[10][0]++;
       cov_2b9x1k7jwi().s[49]++;
-      console.log('❌ Email fuera del dominio');
+      console.log('Email fuera del dominio');
       cov_2b9x1k7jwi().s[50]++;
       errorEmail.textContent = 'Debe usar el dominio @empresa.com.ar';
       cov_2b9x1k7jwi().s[51]++;
@@ -4256,7 +4256,7 @@ function validateEmailRealTime(email) {
     } else {
       cov_2b9x1k7jwi().b[10][1]++;
       cov_2b9x1k7jwi().s[52]++;
-      console.log('✅ Email válido');
+      console.log('Email válido');
       cov_2b9x1k7jwi().s[53]++;
       errorEmail.textContent = '';
       cov_2b9x1k7jwi().s[54]++;
@@ -4267,7 +4267,7 @@ function validateEmailRealTime(email) {
 function clearErrors() {
   cov_2b9x1k7jwi().f[2]++;
   cov_2b9x1k7jwi().s[55]++;
-  console.log('🧼 Limpiando errores del formulario');
+  console.log('Limpiando errores del formulario');
   cov_2b9x1k7jwi().s[56]++;
   ['nombre', 'email', 'edad', 'password', 'repetir'].forEach(function (field) {
     cov_2b9x1k7jwi().f[3]++;
@@ -4280,7 +4280,7 @@ function clearErrors() {
 function validateNombre(nombre) {
   cov_2b9x1k7jwi().f[4]++;
   cov_2b9x1k7jwi().s[59]++;
-  console.log('📝 Validando nombre:', nombre);
+  console.log('Validando nombre:', nombre);
   var nombreInput = (cov_2b9x1k7jwi().s[60]++, document.getElementById('nombre'));
   var errorNombre = (cov_2b9x1k7jwi().s[61]++, document.getElementById('error-nombre'));
   cov_2b9x1k7jwi().s[62]++;
@@ -4315,7 +4315,7 @@ function validateNombre(nombre) {
 function validateEmail(email) {
   cov_2b9x1k7jwi().f[5]++;
   cov_2b9x1k7jwi().s[72]++;
-  console.log('📧 Validando email:', email);
+  console.log('Validando email:', email);
   var emailRegex = (cov_2b9x1k7jwi().s[73]++, /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
   var emailInput = (cov_2b9x1k7jwi().s[74]++, document.getElementById('email'));
   var errorEmail = (cov_2b9x1k7jwi().s[75]++, document.getElementById('error-email'));
@@ -4363,7 +4363,7 @@ function validateEmail(email) {
 function validateEdad(edad) {
   cov_2b9x1k7jwi().f[6]++;
   cov_2b9x1k7jwi().s[90]++;
-  console.log('🎂 Validando edad:', edad);
+  console.log('Validando edad:', edad);
   var edadInput = (cov_2b9x1k7jwi().s[91]++, document.getElementById('edad'));
   var errorEdad = (cov_2b9x1k7jwi().s[92]++, document.getElementById('error-edad'));
   cov_2b9x1k7jwi().s[93]++;
@@ -4371,10 +4371,10 @@ function validateEdad(edad) {
     cov_2b9x1k7jwi().b[16][0]++;
     var edadNum = (cov_2b9x1k7jwi().s[94]++, Number(edad));
     cov_2b9x1k7jwi().s[95]++;
-    if ((cov_2b9x1k7jwi().b[18][0]++, isNaN(edadNum)) || (cov_2b9x1k7jwi().b[18][1]++, edadNum <= 0) || (cov_2b9x1k7jwi().b[18][2]++, edadNum > 120)) {
+    if ((cov_2b9x1k7jwi().b[18][0]++, isNaN(edadNum)) || (cov_2b9x1k7jwi().b[18][1]++, edadNum < 18) || (cov_2b9x1k7jwi().b[18][2]++, edadNum > 99)) {
       cov_2b9x1k7jwi().b[17][0]++;
       cov_2b9x1k7jwi().s[96]++;
-      errorEdad.textContent = 'La edad debe ser un número entre 1 y 120';
+      errorEdad.textContent = 'La edad debe ser un número entre 18 y 99 años';
       cov_2b9x1k7jwi().s[97]++;
       edadInput.classList.add('error');
       cov_2b9x1k7jwi().s[98]++;
@@ -4395,7 +4395,7 @@ function validateEdad(edad) {
 function validatePassword(password) {
   cov_2b9x1k7jwi().f[7]++;
   cov_2b9x1k7jwi().s[102]++;
-  console.log('🔐 Validando contraseña');
+  console.log('Validando contraseña');
   var passwordInput = (cov_2b9x1k7jwi().s[103]++, document.getElementById('password'));
   var errorPassword = (cov_2b9x1k7jwi().s[104]++, document.getElementById('error-password'));
   cov_2b9x1k7jwi().s[105]++;
@@ -4430,7 +4430,7 @@ function validatePassword(password) {
 function validateRepetir(password, repetir) {
   cov_2b9x1k7jwi().f[8]++;
   cov_2b9x1k7jwi().s[115]++;
-  console.log('🔁 Validando repetición de contraseña');
+  console.log('Validando repetición de contraseña');
   var repetirInput = (cov_2b9x1k7jwi().s[116]++, document.getElementById('repetir'));
   var errorRepetir = (cov_2b9x1k7jwi().s[117]++, document.getElementById('error-repetir'));
   cov_2b9x1k7jwi().s[118]++;
@@ -4465,7 +4465,7 @@ function validateRepetir(password, repetir) {
 function showLoading(show) {
   cov_2b9x1k7jwi().f[9]++;
   cov_2b9x1k7jwi().s[128]++;
-  console.log('⏳ Estado de carga:', show);
+  console.log('Estado de carga:', show);
   var submitBtn = (cov_2b9x1k7jwi().s[129]++, document.getElementById('submitBtn'));
   var loading = (cov_2b9x1k7jwi().s[130]++, document.getElementById('loading'));
   cov_2b9x1k7jwi().s[131]++;
@@ -4490,7 +4490,7 @@ function showLoading(show) {
 function showSuccessMessage(nombre) {
   cov_2b9x1k7jwi().f[10]++;
   cov_2b9x1k7jwi().s[138]++;
-  console.log('✅ Mostrando mensaje de éxito');
+  console.log('Mostrando mensaje de éxito');
   var mensajeExito = (cov_2b9x1k7jwi().s[139]++, document.getElementById('mensajeExito'));
   cov_2b9x1k7jwi().s[140]++;
   mensajeExito.textContent = "Registro exitoso. Bienvenido/a, ".concat(nombre, "!");
@@ -4506,7 +4506,7 @@ function showSuccessMessage(nombre) {
 function showErrorMessage(mensaje) {
   cov_2b9x1k7jwi().f[11]++;
   cov_2b9x1k7jwi().s[145]++;
-  console.log('❌ Mostrando mensaje de error general');
+  console.log('Mostrando mensaje de error general');
   var mensajeExito = (cov_2b9x1k7jwi().s[146]++, document.getElementById('mensajeExito'));
   cov_2b9x1k7jwi().s[147]++;
   mensajeExito.textContent = mensaje;
@@ -4522,7 +4522,7 @@ function showErrorMessage(mensaje) {
 function resetForm() {
   cov_2b9x1k7jwi().f[12]++;
   cov_2b9x1k7jwi().s[152]++;
-  console.log('🔄 Reseteando formulario');
+  console.log('Reseteando formulario');
   cov_2b9x1k7jwi().s[153]++;
   document.getElementById('registroForm').reset();
   cov_2b9x1k7jwi().s[154]++;
@@ -4599,7 +4599,7 @@ document.getElementById('registroForm').addEventListener('submit', /*#__PURE__*/
           cov_2b9x1k7jwi().s[178]++;
           e.preventDefault();
           cov_2b9x1k7jwi().s[179]++;
-          console.log('📨 Formulario enviado');
+          console.log('Formulario enviado');
           cov_2b9x1k7jwi().s[180]++;
           clearErrors();
           mensajeExito = (cov_2b9x1k7jwi().s[181]++, document.getElementById('mensajeExito'));
@@ -4681,7 +4681,7 @@ document.getElementById('registroForm').addEventListener('submit', /*#__PURE__*/
           if (errorData.error === 'El email ya está registrado') {
             cov_2b9x1k7jwi().b[34][0]++;
             cov_2b9x1k7jwi().s[205]++;
-            console.log('⚠️ Email duplicado');
+            console.log('Email duplicado');
             errorEmail = (cov_2b9x1k7jwi().s[206]++, document.getElementById('error-email'));
             emailInput = (cov_2b9x1k7jwi().s[207]++, document.getElementById('email'));
             cov_2b9x1k7jwi().s[208]++;
@@ -4700,7 +4700,7 @@ document.getElementById('registroForm').addEventListener('submit', /*#__PURE__*/
           _context.p = 9;
           _t = _context.v;
           cov_2b9x1k7jwi().s[211]++;
-          console.error('🚫 Error en el registro:', _t);
+          console.error('Error en el registro:', _t);
           cov_2b9x1k7jwi().s[212]++;
           showErrorMessage('Error de conexión. Por favor, verifica tu conexión a internet e inténtalo nuevamente.');
         case 10:

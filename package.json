@@ -1,21 +1,23 @@
 {
   "scripts": {
-    "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage",
+    "clean": "if exist public\\js-instrumented rmdir /s /q public\\js-instrumented && if exist .nyc_output rmdir /s /q .nyc_output && if exist coverage rmdir /s /q coverage && if exist test-results rmdir /s /q test-results",
     "instrumentar": "npx babel public/js --out-dir public/js-instrumented --source-maps",
     "test": "npx playwright test",
     "merge": "npx nyc merge .nyc_output coverage/coverage-final.json",
     "coverage": "npx nyc report --report-dir=coverage --reporter=html --reporter=text",
-    "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage",
+    "test-report": "npx playwright show-report",
+    "todo": "npm run clean && npm run instrumentar && npm run test && npm run merge && npm run coverage && echo \"Reportes generados: coverage/index.html y test-results/index.html\"",
     "debug": "npx babel public/js/validaciones.js --out-file debug-output.js",
     "check-instrumented": "dir public\\js-instrumented",
-    "check-nyc": "dir .nyc_output"
+    "check-nyc": "dir .nyc_output",
+    "check-reports": "dir test-results && dir coverage"
   },
   "nyc": {
     "reporter": [
       "text",
       "html",
       "json"
-    ],
+    ],  
     "extension": [
       ".js"
     ],

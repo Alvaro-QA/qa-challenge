@@ -75,12 +75,11 @@ test.describe('Test de integración con API mock y base de datos simulada', () =
    // Verificar que se muestra el error de email duplicado al usuario
    await form.verificarError('email', 'El email ya está registrado');
  });
-});
 
 test('Muestra indicador de carga durante envío', async ({ page }) => {
   // Simular respuesta lenta
   await page.route('**/api/registro', async (route) => {
-    await new Promise(resolve => setTimeout(resolve, 1000)); // 1 segundo de demora
+    await new Promise(resolve => setTimeout(resolve, 3000));
     await route.fulfill({
       status: 200,
       contentType: 'application/json',
@@ -88,9 +87,29 @@ test('Muestra indicador de carga durante envío', async ({ page }) => {
     });
   });
   
+  const form = new FormularioPage(page);
+  await form.goto();
+
+  await form.completarFormulario({
+    nombre: 'Usuario Test',
+    email: 'usuario@empresa.com.ar',
+    edad: '30',
+    password: 'Password123',
+    repetir: 'Password123'
+  });
+
+  // Verificar indicador de carga
+  await form.enviarFormulario();
+  await expect(page.locator('#submitBtn')).toHaveText('Procesando...');
+  await expect(page.locator('#loading')).toBeVisible();
   
+  // Verificar resultado final
+  await form.verificarMensajeExito('Usuario Test');
+
+
 });
 
+});
 
 // Cobertura específica para este archivo
 test.afterEach(async ({ page }, testInfo) => {

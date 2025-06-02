@@ -36,24 +36,23 @@ test.describe('Formulario de Registro', () => {
    await formulario.verificarMensajeExito(datos.nombre);
  });
 
- // Prueba validación de dominio de email: rechaza dominios externos
- // Importante para mantener política de solo empleados corporativos
- test('Muestra error si el email es inválido', async ({ page }) => {
-   const formulario = new FormularioPage(page);
-   await formulario.goto();
-
-   const datos = {
-     nombre: 'Luis Gómez',
-     email: 'luis@gmail.com', // Dominio no permitido
-     edad: '30',
-     password: 'Segura123!',
-     repetir: 'Segura123!',
-   };
-
-   await formulario.completarFormulario(datos);
-   await formulario.enviarFormulario();
-   await formulario.verificarError('email', 'El email debe pertenecer al dominio @empresa.com.ar');
- });
+ // Prueba validación de formato de email con texto completamente inválido
+  // Verifica que emails sin @ ni dominio sean detectados correctamente
+  test('Fallo por email inválido', async ({ page }) => {
+    const form = new FormularioPage(page);
+    await form.goto();
+    
+    await form.completarFormulario({
+      nombre: 'Test User',
+      email: 'correo_invalido', // Texto sin formato de email válido
+      edad: '25',
+      password: 'Password123',
+      repetir: 'Password123',
+    });
+    
+    await form.enviarFormulario();
+    await form.verificarError('email', 'Formato de email inválido');
+  });
 
  // Verifica validación de confirmación de contraseña
  // Previene errores de tipeo en contraseñas y asegura que el usuario confirme

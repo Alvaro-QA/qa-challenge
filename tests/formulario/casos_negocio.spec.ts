@@ -15,7 +15,7 @@ test.describe('Validación de email en el formulario de registro', () => {
    // Intentar registrarse con email de dominio público (caso que debe fallar)
    await form.completarFormulario({
      nombre: 'Carlos',
-     email: 'carlos@gmail.com', // Dominio externo no permitido
+     email: 'carlos@gmail.com', 
      edad: '32',
      password: 'claveSegura1',
      repetir: 'claveSegura1',
@@ -30,7 +30,6 @@ test.describe('Validación de email en el formulario de registro', () => {
  });
 
  // Valida que emails con formato incompleto (sin .com.ar) sean detectados como inválidos
- // Previene registros con emails malformados que causarían problemas de comunicación
  test('No se permite registrar con email sin dominio', async ({ page }) => {
    const form = new FormularioPage(page);
    await form.goto();
@@ -38,7 +37,7 @@ test.describe('Validación de email en el formulario de registro', () => {
    // Probar con email que parece corporativo pero está incompleto
    await form.completarFormulario({
      nombre: 'Ana',
-     email: 'ana@empresa', // Falta extensión .com.ar completa
+     email: 'ana@empresa', 
      edad: '28',
      password: 'claveSegura2',
      repetir: 'claveSegura2',
@@ -60,7 +59,7 @@ test.describe('Validación de email en el formulario de registro', () => {
    // Probar con texto que tiene dominio correcto pero sin @
    await form.completarFormulario({
      nombre: 'Luis',
-     email: 'luisempresa.com.ar', // Sin @ requerido para separar usuario y dominio
+     email: 'luisempresa.com.ar',
      edad: '40',
      password: 'claveSegura3',
      repetir: 'claveSegura3',

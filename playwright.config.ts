@@ -2,18 +2,22 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: 1,
 
-  reporter: [['list']],
+  reporter: [
+    ['list'],                                    // Para consola
+    ['html', { outputFolder: 'test-results' }], // Para reporte HTML
+    ['json', { outputFile: 'test-results/results.json' }] // Para JSON
+  ],
 
   use: {
     baseURL: 'http://localhost:3000/?test',
     trace: 'on-first-retry',
-    // Habilitar cobertura de código
-    // collectCoverage: true,
+    screenshot: 'only-on-failure',  // Screenshots en fallos
+    video: 'retain-on-failure',     // Videos en fallos
   },
 
   projects: [
@@ -21,11 +25,6 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        // Configurar cobertura específica para Chromium
-        contextOptions: {
-          // Habilitar cobertura de JavaScript
-          recordVideo: undefined,
-        }
       },
     },
   ],
